@@ -40,7 +40,7 @@ public class Address extends VersionedChecksummedBytes {
      * <pre>new Address(NetworkParameters.prodNet(), Hex.decode("4a22c3c4cbb31e4d03b15550636762bda0baf85a"));</pre>
      */
     public Address(byte[] hash160) {
-        super(0, hash160);
+        super(88, hash160); // address starts with 'c', we might want to have vanitygenerated 'cid' or 'c1d'
         if (hash160.length != 20)  // 160 = 8 * 20
             throw new RuntimeException("Addresses are 160-bit hashes, so you must provide 20 bytes");
     }
